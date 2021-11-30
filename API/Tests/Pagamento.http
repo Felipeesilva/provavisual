@@ -1,0 +1,9 @@
+### Cadastrar um novo item de venda
+POST https://localhost:5001/api/pagamento/create
+Content-Type: application/json
+
+{
+    "PagamentoId" : 7,
+    "FormaPagamento" : "cheque",
+    "Moeda" : "Real"
+}
