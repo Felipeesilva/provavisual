@@ -17,18 +17,20 @@ namespace API.Controllers
         //POST: api/pagamento/create
         [HttpPost]
         [Route("create")]
-        public IActionResult Create()
+        public IActionResult Create([FromBody] Pagamento pagamento)
         {
-            _context.Pagamentos.AddRange(new Pagamento[]
-                {
-                    new Pagamento { PagamentoId = 7, FormaPagamento = "pix", Moeda = "Real"},
-
-                }
-            );
+            _context.Pagamentos.Add(pagamento);
             _context.SaveChanges();
-            return Ok(new { message = "Forma de pagamento cadastrada com sucesso!" });
+            return Created("", pagamento);
         }
 
+    //     //GET: api/formaPagamento/list
+    //     [HttpPost]
+    //     [Route("list")]
+    //    // public IActionResult List()
+       // {
+          //  return Ok(_context.Pagamentos.ToList());
+        //}
 
     }
 }

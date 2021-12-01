@@ -15,13 +15,27 @@ namespace API.Controllers
             _context = context;
         }
 
+        //POST: api/venda/create
+        [HttpPost]
+        [Route("create")]
+        public IActionResult Create([FromBody] Venda venda)
+        {
+            //criação da venda
+            venda.Pagamento = _context.Pagamentos.Find(venda.PagamentoId);
+            _context.Vendas.Add(venda);
+            _context.SaveChanges();
+            return Created("", venda);
+        }
         //GET: api/venda/list
         //ALTERAR O MÉTODO PARA MOSTRAR TODOS OS DADOS DA VENDA E OS DADOS RELACIONADOS
-        [HttpGet]
+        [HttpPost]
         [Route("list")]
         public IActionResult List()
         {
-            return Ok(_context.Vendas.ToList());
+            var venda = new ObjectResult(new {
+                vendas = _context.Vendas.ToList()});
+
+            return venda;
         }
     }
 }

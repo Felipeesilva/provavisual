@@ -19,9 +19,15 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create()
         {
+            _context.Pagamentos.AddRange(new Pagamento[]
+                {
+                    new Pagamento { PagamentoId = 9, FormaPagamento = "pix", Moeda = "Real"},
+
+                }
+            );
             _context.Categorias.AddRange(new Categoria[]
                 {
-                    new Categoria { CategoriaId = 1, Nome = "Alimentos" },
+                    new Categoria { CategoriaId = 2, Nome = "Alimentos" },
 
                 }
             );

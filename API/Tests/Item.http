@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "ProdutoId" : 1,
     "Quantidade" : 1,
-    "Preco" : 3.5,
+    "Preco" : 40,
     "CarrinhoId" : ""
 }
 

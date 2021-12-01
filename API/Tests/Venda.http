@@ -1,2 +1,14 @@
+### Cadastrar uma nova venda
+POST https://localhost:5001/api/venda/create
+Content-Type: application/json
+
+{
+    "Cliente" : "Felipera do dacta",
+    "pagamentoId": "1",
+    "Itens": [{    "ProdutoId": 3   }]
+
+}
+
+
 ### Listar vendas
 POST https://localhost:5001/api/venda/list
